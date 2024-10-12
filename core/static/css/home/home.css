@@ -1,0 +1,336 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+}
+
+section {
+    margin: 1em 8.75em 5.4em;
+}
+
+/* descricoes */
+
+span {
+    font-family: "DM Serif Display", serif;
+}
+
+.descricao {
+    font-size: 1rem;
+}
+
+/* cores */
+
+.italico {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.roxo {
+    color: #704EEA;
+    
+}
+
+.amarelo {
+    color: #FFC62F;
+}
+
+.laranja {
+    color: #F19436;
+}
+
+.branco {
+    color: #FFFDF2;
+}
+
+/* cores do background */
+
+.background-amarelo {
+    background-color: #FFD25B;
+}
+
+.background-rosa {
+    background-color: #E924AE;
+}
+
+.background-roxo {
+    background-color: #6F24E9;
+}
+
+.background-branco {
+    background-color: #FFFDF2;
+}
+
+/* cores de borda */
+
+.borda-branca {
+    border: 1px solid #FFFDF2;
+}
+
+.borda-roxa {
+    border: 1px solid #6F24E9;
+}
+
+/* hero */
+
+.hero {
+    display: flex;
+    justify-content: center;
+    margin: 6em 2.1em 5.5em ;
+    padding: 0;
+
+    background-image: url("/img/home/hero-bg.png");
+    background-size: cover;
+    text-align: center;
+}
+
+.hero h1 {
+    font-weight: 500;
+    padding: 0;
+    font-size: 4rem;
+    
+}
+
+.hero div {
+    display: block;
+    padding: 2.6em 0 0 0; 
+    align-items: center;
+    max-width: 50em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    padding: 2em 2em 2em;
+    margin: 0 auto
+}
+
+
+/* botoes */
+
+.saber-mais {
+    display: flex;
+    flex-direction: row;
+    gap: 0.93em;
+    margin: 2em auto 0;
+    line-height: 32px;
+    font-size: 1rem;
+    padding: 0.625em 1.87em;
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #704EEA;
+}
+
+.saber-mais img {
+    margin: 0.4em 0
+}
+
+.saber-mais:hover {
+    cursor: pointer;
+    
+}
+
+/* ferramentas */
+
+.ferramentas {
+    display: flex;
+    flex-direction: column;
+}
+
+.ferramentas div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ferramentas p {
+    font-size: 0.9rem;
+    color: #0A0430;
+    margin: 0;
+}
+
+.ferramentas-titulo {
+    font-size: 2.25rem;
+    max-width: 348px;
+}
+
+
+.ferramenta {
+    flex-direction: column;
+    background-color: #704EEA;
+    padding: 15.25em 7.37em 3.25em 2.4em ;
+    border-radius: 2.12em;
+    color: #FFFDF2;
+    margin: 2.7em 0;
+}
+
+/* equipe */
+
+.equipe-container {
+    background-image: url("/img/home/equipe-bg.png");
+    background-size: 98%;
+    background-repeat: no-repeat;
+    background-color: #704EEA;
+    margin: 7em 0;
+}
+
+.equipe-container h2 {
+    padding: 1.5em 6.8em 1em;
+    font-weight: 500;
+    text-align: center;
+    font-size: 2.61rem;
+    line-height: 50px;
+    color: #FFFDF2;
+}
+
+.equipe-container i {
+    font-weight: 600;
+}
+
+.membros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2.5em 0;
+    padding-bottom: 3.75em;
+}
+
+.profissionais-carousel {
+    display: flex;
+    gap: 2em;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+.profissional img {
+    width: 10em;
+}
+
+.profissional p {
+    font-size: 0.9rem;
+    margin: 0 0 0.3em 0;
+}
+
+.profissional h3 {
+    margin: 0.6em 0 0.3em 0;
+    font-size: 1.5rem;
+}
+
+/* icones */
+
+.icone-seta {
+    height: 1.18em;
+    margin: 0 3.12em 5em 3em;
+    height: 32px;
+}
+
+/* plataformas */
+
+.plataforma-container {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.8em;
+    font-size: 2.25rem;
+    padding: 3em 5em;
+    margin: 2em 4.6em 4.2em;
+    text-align: center;
+}
+
+.plataforma-container h2 {
+    margin: 0;
+}
+
+.plataforma-container p {
+    font-size: 1.1rem;
+    margin: 1.82em 10.5em 3.1em
+}
+
+.plataforma-btn {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 223px;
+    max-height: 55px;
+    border-radius: 50px;
+    padding: 0.62em 1.8em;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2.1em;
+}
+
+.plataforma-btn img {
+    margin: 0 0 0 0.62em;
+    border-radius: 50%;
+    padding: 0.50em 0.8em;
+}
+
+.plataforma-btn:hover {
+    cursor: pointer;
+}
+
+/* cards */
+
+.cards-artigo {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    margin-top: 2.6em
+}
+
+.artigo-item {
+    height: 22.5em;
+    width: 18.75em;
+    border-radius: 2em;
+    text-align: center;
+}
+
+.card-descricao {
+    margin: 0.5em 0;
+    max-width: 15em;
+    font-size: 1.5rem;
+}
+
+.cards-titulo {
+    font-size: 2.25rem;
+    max-width: 12em;
+}
+
+@media (max-width: 1920px) {
+    body {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 1600) {
+    body {
+        font-size: 1.05rem;
+    }
+
+
+}
+
+@media (max-width: 1480) {
+    .plataforma-container {
+        font-size: 0.8rem;
+    }
+
+    .ferramentas div {
+        font-size: 0.8rem;
+    }
+
+    .profissional {
+        width: 8em
+    }
+
+    .cards-artigo img {
+        padding: 5em 3em
+    }
+}
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="../../css/forum/mobile/forum.css">
+    <link rel="stylesheet" href="../../css/forum/tablet/forum.css">
+    <link rel="stylesheet" href="../../css/forum/pc/forum.css">
+    <link rel="stylesheet" href="../../css/forum/mobile/carrossel.css">
+    <link rel="stylesheet" href="../../css/forum/tablet/carrossel.css">
+    <link rel="stylesheet" href="../../css/forum/pc/carrossel.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+    <style>
+        #topicos-populares{
+            margin-top: -100px;
+        }
+    </style>
+
+</head>
+    <div id="forum">
+
+        <!--Hero da página-->
+        <div class="hero">
+            <!--1° Metade do hero (Texto e botão)-->
+            <div class="hero-section1">
+
+                <!--Titulo do hero-->
+                <h1 class="titulo-hero">Encontre o <span class="titulo-hero-span1">grupo certo</span> para compartilhar seus <span class="titulo-hero-span2">interesses</span></h1>
+                
+                <!--Conteudo do hero-->
+                <p class="hero-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at mauris quis magna aliquet condimentum. Cras et turpis id eros tincidunt faucibus.</p>
+
+                <!--Botão do hero-->
+                <button class="hero-btn">Saber mais <svg class="hero-btn-span" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.412777 18.7777C0.956418 19.3213 1.83792 19.3213 2.38154 18.7777L9.18545 11.9669C10.2719 10.8795 10.2714 9.11738 9.18461 8.0304L2.37653 1.22238C1.8329 0.678722 0.951407 0.678722 0.407752 1.22238C-0.135917 1.76605 -0.135917 2.64749 0.407752 3.19116L6.23469 9.01812C6.77845 9.56174 6.77845 10.4432 6.23469 10.9869L0.412777 16.8089C-0.130892 17.3525 -0.130892 18.2339 0.412777 18.7777Z" fill="white"/>
+                    </svg>
+                     </button>
+            </div>
+
+            <!--2° Metade do hero (imagens)-->
+            <div class="hero-section2">
+
+                <!--Div pai para organizar a posição das imagens e do retângulo-->
+                <div class="lateral-imgs">
+
+                    <div class="img1-container">
+                        <img class="img" src="../../img/forum/hero-img-1.png" alt="pai com filho no colo, olhando pro mar"/>
+
+                    </div>
+
+                    <div class="img2-container">
+                        <img class="img" src="../../img/forum/hero-img-2.png" alt="mãe levantando filho para cima"/>
+                    </div>
+
+                    <div class="img3-container">
+                        <img class="img" src="../../img/forum/hero-img-3.png" alt="bebê feliz olhando para camera"/>
+                    </div>
+
+                    <div class="container-rectangle">
+                        <div class="rectangle"></div>
+                    </div>
+
+                </div>
+            
+            </div>
+        
+
+        </div>
+
+        <!--Div para centralizar o campo de adicionar tópicos-->
+        <div class="centraliza">
+
+            <!--Campo de adicionar tópicos-->
+            <div class="add-novo-topico">
+                <!--Campo para digitar-->
+                <textarea class="textarea-add-novo-topico" placeholder="Adicionar um novo tópico" id=""></textarea>
+                
+                <!--Imagem do botão adicionar-->
+                <img class="img-add-novo-topico" src="../../img/icones/add-botao.png" alt="botao-adicionar">
+                    
+            </div>
+        </div>
+
+        <!--Lista de tópicos-->
+        <div id="topicos" class="topicos"></div>
+
+        <!--Lista de tópicos populares-->
+        <div class="topicos-populares">
+            <h2 class="titulo-topicos-populares">Tópicos <span>populares</span></h2>
+        </div>
+        
+        <div id="topicos-populares" class="carousel" data-flickity='{ "wrapAround": true }'></div>
+
+
+           
+    </div>
+</html>

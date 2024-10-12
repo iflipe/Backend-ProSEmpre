@@ -1,0 +1,23 @@
+.carousel{
+  gap: 10px;
+  height: 350px;
+  margin-bottom: 100px;
+}
+
+.carousel-cell {
+  width: 80vw;
+  display: flex;
+  }
+  /* cell number */
+  .carousel-cell:before {
+    display: block;
+  }
+
+.carousel-cell .item{
+  margin: 10px;
+  position: relative;
+}
+
+.carousel-cell:last-child {
+  margin-right: 11px ; /* Remove a margem do último elemento */
+}
