@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 class CategoriaVideo(models.Model):
@@ -94,3 +95,24 @@ class RecursoApoio(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Contato(models.Model):
+    telefone = models.CharField(
+        max_length=15,
+        validators=[RegexValidator(r"^\+?\d{0,3}\s?\(?\d{0,2}\)?\s?[\d\-\s]{9,15}$")],
+    )
+    email = models.EmailField()
+    endereco = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.telefone + " / " + self.email
+
+
+class RedesSociais(models.Model):
+    contato = models.ForeignKey(Contato, on_delete=models.CASCADE)
+    icone = models.ImageField(upload_to="icones/redes_sociais/")
+    url = models.URLField()
+
+    def __str__(self):
+        return self.url
