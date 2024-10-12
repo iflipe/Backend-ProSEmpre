@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Categoria(models.Model):
+class CategoriaVideo(models.Model):
     nome = models.CharField(max_length=100, unique=True)
     descricao = models.TextField(verbose_name="breve descrição", max_length=120)
     icone = models.ImageField(upload_to="icones/categorias/")
@@ -13,7 +13,7 @@ class Categoria(models.Model):
 class Video(models.Model):
     titulo = models.CharField(max_length=100)
     categoria = models.ForeignKey(
-        Categoria, on_delete=models.SET_NULL, to_field="nome", null=True
+        CategoriaVideo, on_delete=models.SET_NULL, to_field="nome", null=True
     )
     conteudo = models.FileField(upload_to="videos/")
     thumbnail = models.ImageField(upload_to="videos/thumbnails/")
@@ -65,7 +65,16 @@ class CategoriaApoio(models.Model):
         return self.nome
 
 
-class Artigo(models.Model):
+class SubCategoriaApoio(models.Model):
+    titulo = models.CharField(max_length=50)
+    imagem = models.ImageField(upload_to="fotos/cards/")
+    categoria = models.ForeignKey(CategoriaApoio, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.titulo
+
+
+class ArtigoBlog(models.Model):
     titulo = models.CharField(max_length=120)
     autor = models.ForeignKey(Equipe, on_delete=models.CASCADE)
     conteudo = models.TextField(verbose_name="conteúdo")
@@ -75,3 +84,13 @@ class Artigo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class RecursoApoio(models.Model):
+    nome = models.CharField(max_length=50)
+    tipo = models.ForeignKey(SubCategoriaApoio, on_delete=models.CASCADE)
+    conteudo = models.FileField(upload_to="recursos/")
+    thumbnail = models.ImageField(upload_to="recursos/thumbnails/")
+
+    def __str__(self):
+        return self.nome
