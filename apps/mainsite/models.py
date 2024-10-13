@@ -7,6 +7,9 @@ class CategoriaVideo(models.Model):
     descricao = models.TextField(verbose_name="breve descrição", max_length=120)
     icone = models.ImageField(upload_to="icones/categorias/")
 
+    def nome_formatado(self):
+        return self.nome.split(" ", maxsplit=1)
+
     def __str__(self):
         return self.nome
 
@@ -14,7 +17,11 @@ class CategoriaVideo(models.Model):
 class Video(models.Model):
     titulo = models.CharField(max_length=100)
     categoria = models.ForeignKey(
-        CategoriaVideo, on_delete=models.SET_NULL, to_field="nome", null=True
+        CategoriaVideo,
+        on_delete=models.SET_NULL,
+        to_field="nome",
+        null=True,
+        related_name="videos",
     )
     conteudo = models.FileField(upload_to="videos/")
     thumbnail = models.ImageField(upload_to="videos/thumbnails/")
@@ -120,10 +127,10 @@ class RedesSociais(models.Model):
 
 class TextoSecao(models.Model):
     nome = models.CharField(max_length=50)
-    titulo = models.CharField(max_length=50)
-    subtitulo = models.TextField(max_length=150)
-    url = models.CharField(max_length=50)
-    texto_botao = models.CharField(max_length=30)
+    titulo = models.CharField(max_length=350)
+    subtitulo = models.TextField(max_length=350)
+    url = models.CharField(max_length=50, null=True, blank=True)
+    texto_botao = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -132,6 +139,3 @@ class TextoSecao(models.Model):
 class ImagemSecao(models.Model):
     conteudo = models.ImageField(upload_to="fotos/secoes/")
     secao = models.ForeignKey(TextoSecao, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.secao
