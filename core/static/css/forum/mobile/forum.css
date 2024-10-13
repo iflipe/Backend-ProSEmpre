@@ -1,0 +1,448 @@
+/* Smartphones (até 480px de largura) */
+@media (max-width: 480px) {
+    
+    /*hero*/
+    .hero{
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        padding: 20px;
+      }
+      
+      .hero-section1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+      
+      .titulo-hero{
+        font-size: 40px;
+        color: #0A0430;
+        font-family: 'DM sans', sans-serif;
+        text-align: left;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+      
+      .titulo-hero-span1{
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        color: #E924AE;
+        font-style: italic;
+        letter-spacing: 0;
+      
+      }
+      
+      .titulo-hero-span2{
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        color: #F19436;
+        font-style: italic;
+        letter-spacing: 0;
+      
+      }
+      
+      .hero-paragraph{
+        font-family: "DM sans", sans-serif;
+        font-weight: 400;
+        color: #0A0430;
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+      
+      .hero-btn{
+        font-family: "DM sans", sans-serif;
+        font-weight: 700;
+        background-color: #704EEA;
+        color: #FFFFFF;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 180px;
+        height: 70px;
+        cursor: pointer;
+        font-size: 20px;
+
+    }
+      
+      .hero-btn-span{
+        width: 20px;
+        height: 20px;
+      }
+      
+      .hero-section2{
+        width: 100%;
+        height: 250px;
+    }
+      
+      .lateral-imgs{
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+      
+      .img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 30px;
+      }
+      
+      .img1-container{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        top: 10%;
+        left: 28%;
+      }
+      
+      .img2-container{
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        right: 15%;
+        top: 20%;
+    }
+      
+      .img3-container{
+        width: 150px;
+        height: 90px;
+        position: absolute;
+        bottom: 5%;
+        left: 20%;
+    }
+      
+      
+      .container-rectangle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 40px;
+        background-color: white;
+        border-radius: 100px;
+        z-index: 1;
+        position: absolute;
+        left: 47%;
+        bottom: 30%;
+      }
+      
+      .rectangle{
+        background-color: #FFC62F;
+        width: 55px;
+        height: 25px;
+        border-radius: 50px;
+      }
+
+
+      /*campo de adicionar novo topico*/
+.centraliza{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add-novo-topico{
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+  
+    width: 85%;
+    height: 200px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .textarea-add-novo-topico{
+    margin: 20px 0 0 30px;
+    border: none;
+    font-size: 18px;
+    width: 73%;
+    height: 80%;
+    resize: none;
+    font-family: 'DM sans';
+    outline: none;
+    overflow: hidden;
+  }
+  
+  .textarea-add-novo-topico::placeholder{
+    color: rgba(191, 191, 191, 1);
+  }
+  
+  .img-add-novo-topico{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 15%;
+    right: 5%;
+    cursor: pointer;
+  
+  }
+
+  /*topicos*/
+  .topicos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 100px;
+  }
+  
+  .item-topico{
+    width: 80%;
+    height: 36rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.05);
+  }
+
+  .conteudo-item-topico{
+    margin-left: 20px;
+  }
+  
+  .item-topico h3{
+    font-family: 'DM sans';
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .perfil-item-topico{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .texto-perfil-item-topico{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.nome-perfil-item-topico{
+    font-family: 'DM sans';
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    font-size: 16px;
+    margin: 0;
+}
+  
+  .tempo-postado-perfil-item-topico{
+    font-family: 'DM sans';
+    color: rgba(217, 217, 217, 1);
+    font-size: 14px;
+    margin: 0;
+  
+}
+  
+  .icone-perfil-item-topico{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+  }
+  
+  .icone-perfil-item-topico img{
+    width: 40px;
+    height: 40px;
+    transform: translateX(13px) translateY(8px);
+  } 
+  
+
+  
+  .paragrafo-item-topico{
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  .paragrafo-item-topico p{
+    color: rgba(10, 4, 48, 1);
+    font-family: 'DM sans';
+    font-size: 1.2rem;
+    width: 90%;
+  }
+  
+  .paragrafo-item-topico span{
+    color: rgba(217, 217, 217, 1);
+    font-family: 'DM sans';
+    font-size: 18px;
+    cursor: pointer;
+    
+  }
+  
+  .footer-item-topico{
+    display: flex;
+    font-family: 'DM sans';
+    flex-direction: column-reverse;
+  }
+  
+  .salvar-icon-item-topico{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  
+  }
+  
+  .add-comentario-item-topico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-comentario-item-topico img{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+  
+  .icons-item-topico{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .add-comentario-item-topico p{
+  }
+  
+  .footer-sugestao{
+    margin-right: 50px;
+  }
+  
+  .footer-sugestao p{
+    font-size: 14px;
+  }
+  
+  .footer-sugestao p span{
+    font-weight: bold;
+  }
+  
+  .icone-seta-pra-baixo-item-topicos{
+    width: 10px;
+    height: 5.5px;
+  }
+
+  /*Topicos populares*/
+
+  .topicos-populares{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px 0 100px 0;
+  }
+  
+  
+  .titulo-topicos-populares{
+    font-family: 'DM sans';
+    color: rgba(10, 4, 48, 1);
+    font-size: 40px;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+    margin-bottom: 50px;
+  }
+  
+  .titulo-topicos-populares span{
+    font-family: 'DM Serif Display';
+    font-style: italic;
+    color: rgba(111, 36, 233, 1);
+    font-weight: 400;
+  
+  }
+  
+  .topicos-populares-itens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .item-topico-popular{
+    background-color: rgba(223, 200, 254, 1);
+    width: 22rem;
+    height: 30rem;
+    border-radius: 50px;
+    box-shadow: 0px 2px 5px -1px rgba(50, 50, 93, 0.25);
+  
+  }
+  
+  .item-topico-popular-content{
+    font-family: 'DM sans';
+    margin: 0 0 0 1rem;
+    color: rgba(10, 4, 48, 1);
+    height: 100%;
+}
+  
+  .item-topico-popular h3{
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .item-topico-popular-section1{
+    display: flex;
+    align-items: center;  
+    gap: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+
+  .item-topico-popular-section1 p{
+  }
+  
+  
+  .item-topico-popular-section2{
+    display: flex;
+    align-items: center;
+    
+    gap: 10px;
+    font-size: 1rem;
+  }
+  
+  .item-topico-popular-section2 p{
+  }
+  
+  .comentario-icone-topico-popular, .relogio-icone-topico-popular{
+    height: 25px;
+  }
+  
+  .roxo{
+    background-color: rgba(223, 200, 254, 1);
+  
+  }
+  
+  .amarelo{
+    background-color: rgba(255, 243, 169, 1);
+  
+  }
+  
+  .sections-item-topico-popular{
+      height: 30%;
+  }
+  
+  .section-titulo-paragrafo-item-topico-popular{
+    height: 50%;
+    width: 95%;
+  }
+
+  .section-titulo-paragrafo-item-topico-popular p{
+    font-size: 1.1rem;
+  }
+
+}

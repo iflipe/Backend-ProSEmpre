@@ -1,0 +1,63 @@
+.footer {
+  font-family: "Montserrat", sans-serif;
+  padding: 14.18em 5.6em 1em 0;
+  background: url('/img/footer/footer-bg.png') no-repeat;
+  background-size: cover;
+  color: #f5f5f5;
+  font-size: 1.12rem;
+  padding-left: 8.75em;
+}
+
+.logo {
+  height: 2.8em; /* Tamanho da logo */
+}
+
+.informacoes {
+  display: flex;
+}
+
+.informacoes div {
+  margin-right: 5em;
+}
+
+.informacoes i {
+  margin-bottom: 1em;
+}
+
+.footer-titulo {
+  font-size: 1.5rem;
+  margin-bottom: 2em;
+  font-weight: 500;
+  line-height: 0;
+}
+
+.footer-dados i{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.12rem;
+}
+
+.footer-dados div {
+  margin-bottom: 2em;
+}
+
+.footer-icone {
+  width:1.8em;
+  height: 1.8em;
+  margin: 1em 1em 0 0;
+}
+
+.footer-icones {
+  display: flex;
+  margin-right: 1em;
+}
+
+/* informações da eject */
+
+.eject {
+  display: flex;
+}
+.eject-p {
+  font-size: 1.12rem;
+  margin-top: 10em;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Incluindo as fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Incluindo o CSS local -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pais-e-profs/pais-e-profs.css">
+    <link rel="stylesheet" href="../../css/pais-e-profs/carrossel.css">
+
+    <!-- Incluindo o CSS do Flickity -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <title>Pais e Professores</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Juntos no aprendizado: <span class="amarelo">recursos</span> para <br> <span class="roxo">fortalecimento</span> da educação</h1>
+
+        <p class="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at mauris quis magna <br> aliquet condimentum. Cras et turpis id eros tincidunt faucibus. Nullam aliquam malesuada <br> neque, ac hendrerit lacus tincidunt eu. Lorem ipsum dolor sit amet, consectetur adipiscing <br> elit. Phasellus at mauris quis magna aliquet condimentum. Cras et turpis id eros tincidunt<br> faucibus. Nullam aliquam malesuada neque, ac hendrerit lacus tincidunt eu.</p>
+    </div>
+    <main>
+      <section class="card-colorir">
+          <h2 class="subtitulo">Desenhos para <span class="amarelo">colorir</span>
+              <div class="rectangle-divider"></div>
+          </h2>
+          <div class="cards" id="cards-didaticos"></div>
+      </section>
+
+      <section class="card-didaticos">
+          <h2 class="subtitulo">Cartões <span class="roxo">didáticos</span>
+              <div class="rectangle-divider"></div>
+          </h2>
+          <div class="cards" id="cards-materias"></div>
+      </section>
+
+      <section class="card-pais">
+          <h2 class="subtitulo">Conhecimento para <span class="rosa">pais e professores</span>
+              <div class="rectangle-divider"></div>
+          </h2>
+
+        <!-- Carrossel com o Flickty -->
+          <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
+            <div class="carousel-cell">
+              <div class="item">
+                <img src="../../img/pais-e-profs/image-01-pais.png">
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-02-pais.png>
+                <p class="my-paragraph" >Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-03-pais.png>
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+
+            <div class="carousel-cell">
+              <div class="item">
+                <img src="../../img/pais-e-profs/image-01-colorir.png">
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-02-colorir.png>
+                <p class="my-paragraph" >Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-03-colorir.png>
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+
+            <div class="carousel-cell">
+              <div class="item">
+                <img src="../../img/pais-e-profs/image-01-materias.png">
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-02-materias.png>
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+              <div class="item">
+                <img src=../../img/pais-e-profs/image-03-materias.png>
+                <p class="my-paragraph">Lorem ipsum dolor sit amet consectetur.</p>
+              </div>
+            </div>
+          </div>
+      </section>
+    </main>
+</body>
+</html>
