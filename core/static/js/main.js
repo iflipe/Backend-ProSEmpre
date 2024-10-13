@@ -1,8 +1,8 @@
-import { renderizarDivs } from "./utility/utils"
+/* import { renderizarDivs } from "./utility/utils.js"
 
-import { profissionais, artigos, materiais, topicosPrincipais, itemTopico, cardsColorir, cardsMaterias } from "./utility/data"
-import { carroselEquipe, cardArtigo, cardTopicosPrincipais, cardItemTopico, cards } from "./utility/templates"
-
+import { profissionais, artigos, materiais, topicosPrincipais, itemTopico, cardsColorir, cardsMaterias } from "./utility/data.js"
+import { carroselEquipe, cardArtigo, cardTopicosPrincipais, cardItemTopico, cards } from "./utility/templates.js"
+ */
 document.addEventListener("DOMContentLoaded", function() {
 const root = document.querySelector("#app")
 
@@ -19,7 +19,7 @@ function renderizarCarrossel(){
 }
 
 // Função para renderizar a página com base no nome
-function renderizar(pagina) {
+/* function renderizar(pagina) {
     fetch(`./paginas/${pagina}/${pagina}.html`)
         .then(response => {
             if (!response.ok) {
@@ -51,7 +51,7 @@ function renderizar(pagina) {
             console.error(error)
             root.innerHTML = "<p>Erro ao carregar a página. Tente novamente mais tarde.</p>"
         });
-}
+} */
 
     // Função para lidar com cliques nos botões da navbar
     function setupNavButtons() {
