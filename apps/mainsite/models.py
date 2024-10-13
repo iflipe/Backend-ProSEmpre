@@ -116,3 +116,22 @@ class RedesSociais(models.Model):
 
     def __str__(self):
         return self.url
+
+
+class TextoSecao(models.Model):
+    nome = models.CharField(max_length=50)
+    titulo = models.CharField(max_length=50)
+    subtitulo = models.TextField(max_length=150)
+    url = models.CharField(max_length=50)
+    texto_botao = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nome
+
+
+class ImagemSecao(models.Model):
+    conteudo = models.ImageField(upload_to="fotos/secoes/")
+    secao = models.ForeignKey(TextoSecao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.secao
