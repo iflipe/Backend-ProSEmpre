@@ -1,0 +1,28 @@
+.espacamento-header {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 9em;
+    color: #FFFFFF
+  }
+  
+  .header {
+    padding: 1.6875em 0;
+  
+  }
+  
+  header ul {
+    font-weight: 800;
+    width: 28em;
+    margin: 0;
+    padding: 0.93em 2.5em;
+    background-color: #704EEA;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 100px;
+  }
+  
+  header li:hover {
+    cursor: pointer
+  }

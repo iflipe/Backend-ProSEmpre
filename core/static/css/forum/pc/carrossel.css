@@ -1,0 +1,23 @@
+.carousel {
+  height: 450px;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 450px;
+  margin-right: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  color: white;
+}
+
+

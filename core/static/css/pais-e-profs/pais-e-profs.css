@@ -1,0 +1,153 @@
+
+:root {
+    --roxo-principal: #704EEA;
+    --lilas-secundaria: #DFC8FE;
+    --amarelo-principal: #F19436;
+    --amarelo-secundario: #FFD25B;
+    --amarelo-areia: #FFF3A9;
+    --cor-de-cobertura: rgba(255, 181, 85, 0.25);
+    --rosa-principal:#E924AE;
+    --cor-do-texto:#0A0430;
+
+    --rectangle-width: 60px;
+    --rectangle-height: 8px;
+  }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--cor-do-texto);
+  }
+
+span{
+    font-family: 'DM Serif Display', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+.amarelo{
+  color: var(--amarelo-principal);
+}
+.roxo{
+  color: var(--roxo-principal);
+}
+.rosa{
+  color:var(--rosa-principal);
+}
+
+.container{
+  display: flex;
+  background-image: url('../../img/home/hero-bg.png');
+  background-size: 95%;
+  flex-direction: column;
+  align-items: center;
+  height: 65vh;
+  margin-top: 55px;
+}
+.titulo{
+  text-align: center;
+  font-size: 48px;
+  line-height: 63.13px;
+  font-weight: 600;
+  text-align: center;
+} 
+.descricao {
+  font-weight: 400;
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 7.5%;
+}
+.subtitulo{
+  font-weight: 600;
+  font-size: 36px; 
+  line-height: 52px;
+  left: 100px;
+  padding-bottom: 2rem;
+}
+
+section.card-colorir,.card-didaticos,.card-pais{
+  left: 140px;
+  display: grid;
+  padding:  0 12em;
+}
+.card-didaticos{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.rectangle-divider{
+  margin: 2px;
+}
+.card-colorir .rectangle-divider {
+  width: var(--rectangle-width);  
+  height: var(--rectangle-height);  
+  background-color: var(--amarelo-principal); 
+}
+
+.card-didaticos .rectangle-divider {
+  width: var(--rectangle-width);  
+  height: var(--rectangle-height);
+  background-color: var(--roxo-principal); 
+}
+
+.card-pais .rectangle-divider {
+  width: var(--rectangle-width);  
+  height: var(--rectangle-height); 
+  background-color: var(--rosa-principal); 
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+}
+
+.item:hover
+{
+        -xpedu-transform: scale(0.5);
+        -ms-transform: scale(0.6);
+        transform: scale(1.1);
+}
+
+.item{
+  position: relative;
+}
+
+.card-colorir .item .my-paragraph:hover{
+    color: var(--amarelo-principal);
+}
+
+.card-didaticos .item .my-paragraph:hover{
+  color: var(--roxo-principal);
+}
+
+.card-pais .carousel-cell .item .my-paragraph:hover{
+  color: var(--rosa-principal);
+}
+
+.item img{
+  display: block;
+  width: 360px; 
+  height: 220px;
+  border-radius: 35px;
+  background-color: var(--cor-de-cobertura);
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  width: 360px; 
+  height: 220px;
+  border-radius: 35px;
+  background-color: var(--cor-de-cobertura); 
+  pointer-events: none;
+}
+
+.item p {
+  font-size: 24px ;
+  font-weight: 700;
+  margin-top: 15px;
+  text-align: left;
+  line-height: 32px;
+  padding-left: 15px;
+  color: black;
+}
