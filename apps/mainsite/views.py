@@ -52,11 +52,14 @@ def videos(request):
 
 
 def home(request):
+
+    # Busca um único resultado para as seções do site
     secao_home = TextoSecao.objects.filter(nome="herohome").first()
     secao_equipe = TextoSecao.objects.filter(nome="equipe").first()
     secao_blog = TextoSecao.objects.filter(nome="blog").first()
     secao_apoio = TextoSecao.objects.filter(nome="pais-e-profs").first()
 
+    # Já que as seções de vídeos e jogos são coloridas, as exibimos de forma aleatória
     secao_colorida = (
         TextoSecao.objects.filter(nome="videoshome").values()
         | TextoSecao.objects.filter(nome="jogoshome").values()
@@ -70,6 +73,7 @@ def home(request):
     categorias = CategoriaApoio.objects.all()
     equipe = Equipe.objects.all()
 
+    # Seleciona da lista completa de artigos 3 aleatoriamente para exibir na home
     artigos_lista = ArtigoBlog.objects.all()
     artigos = random.sample(list(artigos_lista), min(3, len(artigos_lista)))
 
