@@ -36,6 +36,9 @@ class Ferramenta(models.Model):
     descricao = models.TextField(verbose_name="descrição", max_length=100)
     imagem = models.ImageField(upload_to="fotos/ferramentas/")
 
+    def nome_formatado(self):
+        return self.nome.split(" ", maxsplit=1)
+
     # TODO: definir como melhor tratar a URL de direcionamento
     url = models.URLField(
         verbose_name="link de direcionamento",
@@ -53,7 +56,9 @@ class Equipe(models.Model):
     foto_perfil = models.ImageField(upload_to="fotos/equipe/")
 
     # Esse campo foi inserido pensando em preparar o sistema para uma futura implementação de páginas para cada membro
-    biografia = models.TextField(verbose_name="breve biografia", max_length=300)
+    biografia = models.TextField(
+        verbose_name="breve biografia", max_length=300, null=True, blank=True
+    )
 
     def __str__(self):
         return self.nome
@@ -111,6 +116,7 @@ class Contato(models.Model):
     )
     email = models.EmailField()
     endereco = models.CharField(max_length=150)
+    cidade = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.telefone + " / " + self.email
@@ -128,7 +134,7 @@ class RedesSociais(models.Model):
 class TextoSecao(models.Model):
     nome = models.CharField(max_length=50)
     titulo = models.CharField(max_length=350)
-    subtitulo = models.TextField(max_length=350)
+    subtitulo = models.TextField(max_length=350, null=True, blank=True)
     url = models.CharField(max_length=50, null=True, blank=True)
     texto_botao = models.CharField(max_length=50, null=True, blank=True)
 

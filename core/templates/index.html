@@ -25,8 +25,8 @@
     <header class="espacamento-header header">
         <img class="logo" src="{% static 'img/logos/logo-site.png' %}">
         <ul class="navbar-desktop">
-            <li><a id="home">home</a></li>
-            <li><a id="videos">videos</a></li>
+            <li><a href="{% url 'home' %}" id="home">home</a></li>
+            <li><a href="{% url 'videos' %}" id="videos">videos</a></li>
             <li><a id="pais-e-profs">pais & profs</a></li>
             <li><a id="forum">forum</a></li>
         </ul>
@@ -46,16 +46,18 @@
             <div>
                 <h2 class="footer-titulo">CONTATO</h2>
                 <div class="footer-dados">
-                    <i>+55 21 99999-9999</i>
-                    <i>contato@sabidinhos.com</i>
+                    <i>{{contato.telefone}}</i>
+                    <i>{{contato.email}}</i>
                 </div>
                 <div class="footer-dados">
-                    <i>Rua ali perto, 2000 - Candelária</i>
-                    <i>Rio Grande do Norte - RN</i>
+                    <i>{{contato.endereco}}</i>
+                    {% if contato.cidade %}
+                    <i>{{contato.cidade}}</i>
+                    {% endif %}
                     <div class="footer-icones">
-                        <img class="footer-icones" src="{% static 'img/logos/logo-insta.png' %}">
-                        <img class="footer-icones" src="{% static 'img/logos/logo-fb.png' %}">
-                        <img class="footer-icones" src="{% static 'img/logos/logo-yt.png' %}">
+                        {% for rede in redes_sociais %}
+                        <a href={{rede.url}}><img class="footer-icones" src="{{rede.icone.url}}"></a>
+                        {% endfor %}
                     </div>
                 </div>
 

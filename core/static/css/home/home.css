@@ -80,7 +80,7 @@ span {
     margin: 6em 2.1em 5.5em ;
     padding: 0;
 
-    background-image: url("/img/home/hero-bg.png");
+    background-image: url("../../img/home/hero-bg.png");
     background-size: cover;
     text-align: center;
 }
@@ -169,7 +169,7 @@ span {
 /* equipe */
 
 .equipe-container {
-    background-image: url("/img/home/equipe-bg.png");
+    background-image: url("../../img/home/equipe-bg.png");
     background-size: 98%;
     background-repeat: no-repeat;
     background-color: #704EEA;
@@ -280,7 +280,7 @@ span {
     display: flex;
     justify-content: space-between;
     font-weight: 700;
-    margin-top: 2.6em
+    margin-top: 2.6em;
 }
 
 .artigo-item {

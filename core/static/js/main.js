@@ -77,7 +77,7 @@ function renderizarCarrossel(){
     }
 
     // Verifica o path atual e renderiza o conteúdo correspondente ao carregar a página
-    const pathAtual = window.location.pathname
+    /*const pathAtual = window.location.pathname
 
     if (pathAtual === "/videos") {
         renderizar("videos")
@@ -88,6 +88,7 @@ function renderizarCarrossel(){
     } else {
         renderizar("home");  // Carrega "home" por padrão
     }
+    */
 
     // Configura os botões da navbar
     setupNavButtons()
