@@ -54,23 +54,22 @@
             
             
             <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
-            
-            {% for video in cat_vid.videos %}
                 
-                {% if forloop.counter|divisibleby:"3" %}
-                <div class="carousel-cell">
-                {% endif %}
+            {% for video in cat_vid.videos %}
+                {% cycle "<div class='carousel-cell'>" "" "" %}
                     <div class="item">
                         <img src="{{video.thumbnail.url}}">
                         <p class="descricao preto">{{video.titulo}}</p>
                     </div>
-                {% if forloop.counter|divisibleby:"3" %}
+                {% if forloop.last %}
                 </div>
+                {% resetcycle %}
+                {% else %}
+                    {% cycle "" "" "</div>" %}
                 {% endif %}
-                
             {% endfor %}
-            
             </div>
+            {% resetcycle %}
             {% endfor %}
         </section>
     {% endblock %}
