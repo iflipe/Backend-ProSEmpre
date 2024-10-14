@@ -5,7 +5,7 @@ import { carroselEquipe, cardArtigo, cardTopicosPrincipais, cardItemTopico, card
  */
 document.addEventListener("DOMContentLoaded", function() {
 const root = document.querySelector("#app")
-
+/*
 function renderizarCarrossel(){
     const script1 = document.createElement('script');
     script1.src = 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js';
@@ -17,7 +17,7 @@ function renderizarCarrossel(){
     script2.async = true;
     document.body.appendChild(script2);
 }
-
+*/
 // Função para renderizar a página com base no nome
 /* function renderizar(pagina) {
     fetch(`./paginas/${pagina}/${pagina}.html`)
@@ -56,22 +56,22 @@ function renderizarCarrossel(){
     // Função para lidar com cliques nos botões da navbar
     function setupNavButtons() {
         document.querySelector("#home").addEventListener("click", () => {
-            renderizar("home")
-            history.pushState(null, "", "/home") // Atualiza a URL
+            location.href = location.origin
+            history.pushState(null, "", "") // Atualiza a URL
         });
 
         document.querySelector("#videos").addEventListener("click", () => {
-            renderizar("videos")
+            location.href = 'videos'
             history.pushState(null, "", "/videos") // Atualiza a URL
         });
 
         document.querySelector("#forum").addEventListener("click", () => {
-            renderizar("forum")
+            location.href = 'forum'
             history.pushState(null, "", "/forum") // Atualiza a URL
         });
 
         document.querySelector("#pais-e-profs").addEventListener("click", () => {
-            renderizar("pais-e-profs")
+            location.href = 'pais-e-profs'
             history.pushState(null, "", "/pais-e-profs") // Atualiza a URL
         });
     }
@@ -95,16 +95,16 @@ function renderizarCarrossel(){
 
     // Lida com navegação de "voltar" e "avançar" no histórico
     window.addEventListener("popstate", function() {
-        const pathAtual = window.location.pathname
+        const pathAtual = location.pathname
 
         if (pathAtual === "/videos") {
-            renderizar("videos")
+            location.href = 'videos'
         } else if (pathAtual === "/forum") {
-            renderizar("forum")
+            location.href = 'forum'
         } else if (pathAtual === "/pais-e-profs") {
-            renderizar("pais-e-profs")
+            location.href = 'pais-e-profs'
         } else {
-            renderizar("home"); // Carrega "home" por padrão
+            location.href = location.origin; // Carrega "home" por padrão
         }
     })
 })
