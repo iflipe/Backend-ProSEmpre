@@ -30,6 +30,10 @@ def videos(request):
             "categoria": categoria,
             "videos": videos_aleatorios,
         }
+
+    contato = Contato.objects.first()
+    redes_sociais = RedesSociais.objects.all()
+
     context = {
         "secao": secao,
         "categorias_videos": videos_aleatorios_por_categoria,
@@ -40,6 +44,8 @@ def videos(request):
             {"imagem": resultado[4:6], "tamanho": "Pequeno", "dupla": True},
             {"imagem": resultado[6], "tamanho": "Pequeno", "dupla": False},
         ],
+        "contato": contato,
+        "redes_sociais": redes_sociais,
     }
 
     return render(request, "videos.html", context)
