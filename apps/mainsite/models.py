@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
-
 class CategoriaVideo(models.Model):
     nome = models.CharField(max_length=100, unique=True)
     descricao = models.TextField(verbose_name="breve descrição", max_length=120)
@@ -68,11 +67,8 @@ class CategoriaApoio(models.Model):
     nome = models.CharField(max_length=50)
     imagem = models.ImageField(upload_to="fotos/categorias_apoio/")
 
-    # TODO: definir qual formato de URL será utilizado
-    @property
-    def url(self):
-        "Retorna uma url que substitui espaços por hífens no campo nome."
-        return self.nome.replace(" ", "-")
+    def nome_formatado(self):
+        return self.nome.split(" ", maxsplit=1)
 
     def __str__(self):
         return self.nome
@@ -81,7 +77,11 @@ class CategoriaApoio(models.Model):
 class SubCategoriaApoio(models.Model):
     titulo = models.CharField(max_length=50)
     imagem = models.ImageField(upload_to="fotos/cards/")
-    categoria = models.ForeignKey(CategoriaApoio, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(
+        CategoriaApoio, 
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name = "paginas" )
 
     def __str__(self):
         return self.titulo
