@@ -77,3 +77,20 @@ def forum(request):
     context.update(get_footer())
 
     return render(request, "forum.html", context)
+
+
+def adicionar_topico(request):
+    if request.method == "POST":
+        texto = request.POST.get("novo_topico")
+        usuario = random.sample(list(Usuario.objects.all()), 1)[0]
+
+        # Já que não há campo para título do tópico, vamos considerar que a primeira linha do texto é o título
+        if texto:
+            titulo = texto.splitlines()[0][:150]
+            TopicoForum.objects.create(
+                titulo=titulo,
+                conteudo=texto,
+                usuario=usuario,
+            )
+
+    return forum(request)

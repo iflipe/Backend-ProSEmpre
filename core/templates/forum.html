@@ -71,14 +71,17 @@
         <div class="centraliza">
 
             <!--Campo de adicionar tópicos-->
-            <div class="add-novo-topico">
+            <form class="add-novo-topico" method="POST" action="adicionar_topico"> 
+                {% csrf_token %}
                 <!--Campo para digitar-->
-                <textarea class="textarea-add-novo-topico" placeholder="Adicionar um novo tópico" id=""></textarea>
+                <textarea class="textarea-add-novo-topico" placeholder="Adicionar um novo tópico" id="novo_topico" name="novo_topico"></textarea>
                 
                 <!--Imagem do botão adicionar-->
-                <img class="img-add-novo-topico" src="{% static 'img/icones/add-botao.png' %}" alt="botao-adicionar">
+                <button type="submit">
+                    <img class="img-add-novo-topico" src="{% static 'img/icones/add-botao.png' %}" alt="botao-adicionar" >
+                </button>
                     
-            </div>
+            </form>
         </div>
 
         <!--Lista de tópicos-->
