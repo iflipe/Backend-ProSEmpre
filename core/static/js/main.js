@@ -95,11 +95,12 @@ function renderizarCarrossel(){
 
     function verMais(span) {
         const topico = span.closest('.item-topico');
+        const item = topico.querySelector('.paragrafo-item-topico');
         const textoCompleto = topico.querySelector('.texto-integra');
         
         if (textoCompleto.style.display === 'none') {
             textoCompleto.style.display = 'block';
-            topico.innerHTML = textoCompleto.innerHTML;
+            item.innerHTML = textoCompleto.innerHTML;
             span.style.display = 'none';
         }
     }
