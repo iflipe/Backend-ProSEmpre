@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 
 class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=80)
     foto_perfil = models.ImageField(upload_to="fotos/usuarios/", blank=True, null=True)
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.nome
 
 
 class TopicoForum(models.Model):
@@ -17,7 +17,7 @@ class TopicoForum(models.Model):
     data_criacao = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.usuario.user.first_name + ": " + self.titulo
+        return self.usuario.nome + ": " + self.titulo
 
 
 class ComentarioTopico(models.Model):
