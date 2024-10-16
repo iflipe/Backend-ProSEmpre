@@ -13,6 +13,7 @@ from .models import (
 )
 import random
 
+
 def pais_e_profs(request):
     secao_pais_e_profs = TextoSecao.objects.filter(nome="hero-pais-e-profs").first()
     categorias = CategoriaApoio.objects.all()
@@ -36,9 +37,11 @@ def pais_e_profs(request):
         "secao": secao_pais_e_profs,
         "categoria_paginas": pag_aleatoria_por_categoria,
         "contato": contato,
-        "redes_sociais": redes_sociais,}
+        "redes_sociais": redes_sociais,
+    }
 
     return render(request, "pais-e-profs.html", context)
+
 
 def videos(request):
     secao = TextoSecao.objects.filter(nome="herovideo").first()
@@ -59,7 +62,7 @@ def videos(request):
 
     contato = Contato.objects.first()
     redes_sociais = RedesSociais.objects.all()
-    
+
     context = {
         "secao": secao,
         "categorias_videos": videos_aleatorios_por_categoria,
@@ -70,15 +73,25 @@ def videos(request):
 
     # Verifica o tamanho da lista resultado e adiciona as imagens
     if len(resultado) > 0:
-        context["imagens"].append({"imagem": resultado[0], "tamanho": "Pequeno", "dupla": False})
+        context["imagens"].append(
+            {"imagem": resultado[0], "tamanho": "Pequeno", "dupla": False}
+        )
     if len(resultado) > 1:
-        context["imagens"].append({"imagem": resultado[1:3], "tamanho": "Pequeno", "dupla": True})
+        context["imagens"].append(
+            {"imagem": resultado[1:3], "tamanho": "Pequeno", "dupla": True}
+        )
     if len(resultado) > 3:
-        context["imagens"].append({"imagem": resultado[3], "tamanho": "Grande", "dupla": False})
+        context["imagens"].append(
+            {"imagem": resultado[3], "tamanho": "Grande", "dupla": False}
+        )
     if len(resultado) > 4:
-        context["imagens"].append({"imagem": resultado[4:6], "tamanho": "Pequeno", "dupla": True})
+        context["imagens"].append(
+            {"imagem": resultado[4:6], "tamanho": "Pequeno", "dupla": True}
+        )
     if len(resultado) > 6:
-        context["imagens"].append({"imagem": resultado[6], "tamanho": "Pequeno", "dupla": False})
+        context["imagens"].append(
+            {"imagem": resultado[6], "tamanho": "Pequeno", "dupla": False}
+        )
 
     return render(request, "videos.html", context)
 
@@ -123,4 +136,3 @@ def home(request):
         "categorias": categorias,
     }
     return render(request, "home.html", context)
-
