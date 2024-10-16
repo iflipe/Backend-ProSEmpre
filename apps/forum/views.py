@@ -22,9 +22,13 @@ def forum(request):
         num_comentaristas = comentaristas.count()
 
         if num_comentaristas == 0:
-            comentarios_topicos.append("Seja o primeiro a comentar em " + topico.titulo)
+            comentarios_topicos.append(
+                "Seja o primeiro a comentar em <b>" + topico.titulo + "</b>"
+            )
         elif num_comentaristas < 3:
-            comentarios_topicos.append("Participe da discussão em " + topico.titulo)
+            comentarios_topicos.append(
+                "Participe da discussão em <b>" + topico.titulo + "</b>"
+            )
         else:
             pessoas = random.sample(list(comentaristas), 2)
             comentarios_topicos.append(
@@ -32,8 +36,9 @@ def forum(request):
                 + Usuario.objects.get(pk=pessoas[0]["usuario"]).nome
                 + " e "
                 + Usuario.objects.get(pk=pessoas[1]["usuario"]).nome
-                + " e comente sobre "
+                + " e comente sobre <b>"
                 + topico.titulo
+                + "</b>"
             )
 
     # Paginacao dos topicos

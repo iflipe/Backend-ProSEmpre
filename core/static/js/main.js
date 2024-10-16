@@ -93,6 +93,19 @@ function renderizarCarrossel(){
     // Configura os botões da navbar
     setupNavButtons()
 
+    function verMais(span) {
+        const topico = span.closest('.item-topico');
+        const textoCompleto = topico.querySelector('.texto-integra');
+        
+        if (textoCompleto.style.display === 'none') {
+            textoCompleto.style.display = 'block';
+            topico.innerHTML = textoCompleto.innerHTML;
+            span.style.display = 'none';
+        }
+    }
+
+    window.verMais = verMais;
+
     // Lida com navegação de "voltar" e "avançar" no histórico
     window.addEventListener("popstate", function() {
         const pathAtual = location.pathname
@@ -108,3 +121,4 @@ function renderizarCarrossel(){
         }
     })
 })
+

@@ -101,7 +101,7 @@
                     <div class="paragrafo-item-topico">
                         {% if topico.conteudo|length > 200 %}
                             {{ topico.conteudo|slice:":200" }}...
-                            <span class="full-text" style="display: none;">{{topico.conteudo}}</span>
+                            <p class="texto-integra" style="display: none;">{{topico.conteudo}}</p>
                             <span onclick="verMais(this)">Ver mais <img class="icone-seta-pra-baixo-item-topicos" src="{% static 'img/icones/seta-pra-baixo-icon.png' %}" alt="icone de seta pra baixo"/></span>
                         {% else %}
                             {{topico.conteudo}}
@@ -120,7 +120,7 @@
         
                         
                         <div class="footer-sugestao">
-                            <p>{{texto}}</p>
+                            <p>{{texto|safe}}</p>
                         </div>
         
                     </div>
@@ -133,8 +133,8 @@
             <div class="paginacao">
                 <span class="nav-paginas">
                     {% if topicos.has_previous %}
-                        <a href="?page=1"><<</a>
-                        <a href="?page={{ topicos.previous_page_number }}"><</a>
+                        <a href="?page=1">&laquo;</a>
+                        <a href="?page={{ topicos.previous_page_number }}">&lsaquo;</a>
                     {% endif %}
             
                     {% for i in topicos.paginator.page_range %}
@@ -142,8 +142,8 @@
                     {% endfor %}
             
                     {% if topicos.has_next %}
-                        <a href="?page={{ topicos.next_page_number }}">></a>
-                        <a href="?page={{ topicos.paginator.num_pages }}">>></a>
+                        <a href="?page={{ topicos.next_page_number }}">&rsaquo;</a>
+                        <a href="?page={{ topicos.paginator.num_pages }}">&raquo;</a>
                     {% endif %}
                 </span>
             </div>
