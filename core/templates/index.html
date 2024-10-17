@@ -1,10 +1,10 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -13,15 +13,17 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header/header.css">
-    <link rel="stylesheet" href="/css/footer/footer.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer/footer.css' %}">
+    {% block css %}
+    {% endblock %}
 
 </head>
 
 <body>
     <header class="espacamento-header header">
-        <img class="logo" src="/img/logos/logo-site.png">
+        <img class="logo" src="{% static 'img/logos/logo-site.png' %}">
         <ul class="navbar-desktop">
             <li><a id="home">home</a></li>
             <li><a id="videos">videos</a></li>
@@ -30,27 +32,32 @@
         </ul>
     </header>
 
-    <div id="app"></div>
+    <div id="app">
+        {% block conteudo%}
+        {% endblock %}
+    </div>
 
     <footer class="footer">
         <div class=" informacoes">
             <div>
-                <img class="logo" src="/img/logos/logo-site.png">
+                <img class="logo" src="{% static 'img/logos/logo-site.png' %}">
                 <p class="eject-p">EJECT © Alguns Direitos Reservados</p>
             </div>
             <div>
                 <h2 class="footer-titulo">CONTATO</h2>
                 <div class="footer-dados">
-                    <i>+55 21 99999-9999</i>
-                    <i>contato@sabidinhos.com</i>
+                    <i>{{contato.telefone}}</i>
+                    <i>{{contato.email}}</i>
                 </div>
                 <div class="footer-dados">
-                    <i>Rua ali perto, 2000 - Candelária</i>
-                    <i>Rio Grande do Norte - RN</i>
+                    <i>{{contato.endereco}}</i>
+                    {% if contato.cidade %}
+                    <i>{{contato.cidade}}</i>
+                    {% endif %}
                     <div class="footer-icones">
-                        <img class="footer-icones" src="/img/logos/logo-insta.png">
-                        <img class="footer-icones" src="/img/logos/logo-fb.png">
-                        <img class="footer-icones" src="/img/logos/logo-yt.png">
+                        {% for rede in redes_sociais %}
+                        <a href={{rede.url}}><img class="footer-icones" src="{{rede.icone.url}}"></a>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -67,10 +74,11 @@
 
         </div>
     </footer>
-    <script type="module" src="/js/main.js"></script>
-    <script type="module" src="../js/utility/data.js"></script>
-    <script type="module" src="../js/utility/utils.js"></script>
-
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+    <script type="module" src="{% static 'js/utility/data.js' %}"></script>
+    <script type="module" src="{% static 'js/utility/utils.js' %}"></script>
+    {% block js %}
+    {% endblock %}
 </body>
 
 </html>
