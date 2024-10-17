@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .utils import get_footer
 from .models import (
     CategoriaApoio,
     TextoSecao,
@@ -7,17 +8,16 @@ from .models import (
     Ferramenta,
     Equipe,
     ArtigoBlog,
-    RecursoApoio,
-    Contato,
-    RedesSociais,
 )
 import random
 
 
 def pais_e_profs(request):
+    # Busca a seção de texto para exibição
     secao_pais_e_profs = TextoSecao.objects.filter(nome="hero-pais-e-profs").first()
     categorias = CategoriaApoio.objects.all()
 
+    # Busca até 9 subcategorias de recursos para exibir aleatoriamente por categoria
     pag_aleatoria_por_categoria = {}
     for categoria in categorias:
         paginas_por_categoria = categoria.paginas.all()
@@ -30,24 +30,22 @@ def pais_e_profs(request):
             "paginas": paginas_aleatorias,
         }
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     context = {
         "secao": secao_pais_e_profs,
         "categoria_paginas": pag_aleatoria_por_categoria,
-        "contato": contato,
-        "redes_sociais": redes_sociais,
     }
+    context.update(get_footer())
 
     return render(request, "pais-e-profs.html", context)
 
 
 def videos(request):
-    secao = TextoSecao.objects.filter(nome="herovideo").first()
-    resultado = ImagemSecao.objects.filter(secao=secao).all()[:7]
+    # Busca a seção de texto para exibição
+    secao = TextoSecao.objects.filter(nome="hero-videos").first()
+    imagens_hero = ImagemSecao.objects.filter(secao=secao).all()[:7]
     categorias = CategoriaVideo.objects.all()
 
+    # Busca até 9 vídeos aleatórios por categoria para exibir
     videos_aleatorios_por_categoria = {}
     for categoria in categorias:
         videos_por_categoria = categoria.videos.all()
@@ -60,37 +58,33 @@ def videos(request):
             "videos": videos_aleatorios,
         }
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     context = {
         "secao": secao,
         "categorias_videos": videos_aleatorios_por_categoria,
         "imagens": [],  # Inicializa a lista vazia
-        "contato": contato,
-        "redes_sociais": redes_sociais,
     }
+    context.update(get_footer())
 
     # Verifica o tamanho da lista resultado e adiciona as imagens
-    if len(resultado) > 0:
+    if len(imagens_hero) > 0:
         context["imagens"].append(
-            {"imagem": resultado[0], "tamanho": "Pequeno", "dupla": False}
+            {"imagem": imagens_hero[0], "tamanho": "Pequeno", "dupla": False}
         )
-    if len(resultado) > 1:
+    if len(imagens_hero) > 1:
         context["imagens"].append(
-            {"imagem": resultado[1:3], "tamanho": "Pequeno", "dupla": True}
+            {"imagem": imagens_hero[1:3], "tamanho": "Pequeno", "dupla": True}
         )
-    if len(resultado) > 3:
+    if len(imagens_hero) > 3:
         context["imagens"].append(
-            {"imagem": resultado[3], "tamanho": "Grande", "dupla": False}
+            {"imagem": imagens_hero[3], "tamanho": "Grande", "dupla": False}
         )
-    if len(resultado) > 4:
+    if len(imagens_hero) > 4:
         context["imagens"].append(
-            {"imagem": resultado[4:6], "tamanho": "Pequeno", "dupla": True}
+            {"imagem": imagens_hero[4:6], "tamanho": "Pequeno", "dupla": True}
         )
-    if len(resultado) > 6:
+    if len(imagens_hero) > 6:
         context["imagens"].append(
-            {"imagem": resultado[6], "tamanho": "Pequeno", "dupla": False}
+            {"imagem": imagens_hero[6], "tamanho": "Pequeno", "dupla": False}
         )
 
     return render(request, "videos.html", context)
@@ -99,7 +93,7 @@ def videos(request):
 def home(request):
 
     # Busca um único resultado para as seções do site
-    secao_home = TextoSecao.objects.filter(nome="herohome").first()
+    secao_home = TextoSecao.objects.filter(nome="hero-home").first()
     secao_equipe = TextoSecao.objects.filter(nome="equipe").first()
     secao_blog = TextoSecao.objects.filter(nome="blog").first()
     secao_apoio = TextoSecao.objects.filter(nome="pais-e-profs").first()
@@ -111,14 +105,11 @@ def home(request):
     )
     secao_aleatoria = random.sample(list(secao_colorida), min(2, len(secao_colorida)))
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     ferramentas = Ferramenta.objects.all()
     categorias = CategoriaApoio.objects.all()
     equipe = Equipe.objects.all()
 
-    # Seleciona da lista completa de artigos 3 aleatoriamente para exibir na home
+    # Seleciona da lista completa de artigos até 3 aleatoriamente para exibir na home
     artigos_lista = ArtigoBlog.objects.all()
     artigos = random.sample(list(artigos_lista), min(3, len(artigos_lista)))
 
@@ -129,10 +120,10 @@ def home(request):
         "secao_apoio": secao_apoio,
         "ferramentas": ferramentas,
         "equipe": equipe,
-        "contato": contato,
-        "redes_sociais": redes_sociais,
         "artigos": artigos,
         "secao_cores": secao_aleatoria,
         "categorias": categorias,
     }
+    context.update(get_footer())
+
     return render(request, "home.html", context)
