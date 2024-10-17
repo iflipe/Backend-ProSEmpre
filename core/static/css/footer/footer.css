@@ -37,6 +37,16 @@
   font-size: 1.12rem;
 }
 
+.footer-dados i a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.footer-dados i a:hover {
+  color: #f5f5f5;
+  text-decoration: underline;
+}
+
 .footer-dados div {
   margin-bottom: 2em;
 }

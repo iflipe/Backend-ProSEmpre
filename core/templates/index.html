@@ -65,10 +65,9 @@
             <div>
                 <h2 class="footer-titulo">INFORMAÇÕES</h2>
                 <div class="footer-dados">
-                    <i>Exames Laboratoriais</i>
-                    <i>Consultas Veterinarias</i>
-                    <i>Plano PET de saúde</i>
-                    <i>Quem somos?</i>
+                    {% for info in informacoes %}
+                    <i><a href="{{info.link}}">{{info.campo}}</a></i>
+                    {% endfor %}
                 </div>
             </div>
 

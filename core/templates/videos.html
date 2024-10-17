@@ -1,80 +1,80 @@
 {% extends 'index.html' %}
 {% load static %}
 
-    {% block css %}
-    <link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Incluindo o CSS do Flickity -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <title>Vídeos</title>
-    {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/videos/videos.css' %}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Incluindo o CSS do Flickity -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<title>Vídeos</title>
+{% endblock %}
+
+{% block conteudo %}
+<section class="main">
+    <div class="hero">
+        <div class="titulo-main">
+            <h1 class="preto">{{secao.titulo|safe}}</h1>
+        </div>
+        <div class="imagens-hero">
+        {% for img in imagens %}
+        <div class="containerHero{{img.tamanho}}">
+            {% if img.dupla %}
+            <img src="{{img.imagem.0.conteudo.url}}" alt="">
+            <img src="{{img.imagem.1.conteudo.url}}" alt="">
+            {% else %}
+            <img src="{{img.imagem.conteudo.url}}" alt="">
+            {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="legenda-main">
+        <p class="legenda">{{secao.subtitulo}}</p>
+    </div>
+</section>
+
+<section class="categorias">
+    <div class="botões">
+        {% for cat in categorias_videos.values %}
+        <button class="componente">
+            <img src="{{cat.categoria.icone.url}}" alt="">
+            <p>{{cat.categoria.descricao}}</p>
+        </button>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="card-educativo">
+    {% for cat_vid in categorias_videos.values %}
+    <h2 class="subtitulo">{{cat_vid.categoria.nome_formatado.0}} <span class="{% cycle 'laranja italico' 'roxo italico' 'amarelo italico' 'rosa italico' %}">{{cat_vid.categoria.nome_formatado.1}}</span>
+        <div class="rectangle-divider"></div>
+    </h2>
     
-    {% block conteudo %}
-    <section class="main">
-        <div class="hero">
-            <div class="titulo-main">
-                <h1 class="preto">{{secao.titulo|safe}}</h1>
-            </div>
-            <div class="imagens-hero">
-            {% for img in imagens %}
-            <div class="containerHero{{img.tamanho}}">
-                {% if img.dupla %}
-                <img src="{{img.imagem.0.conteudo.url}}" alt="">
-                <img src="{{img.imagem.1.conteudo.url}}" alt="">
-                {% else %}
-                <img src="{{img.imagem.conteudo.url}}" alt="">
-                {% endif %}
-            </div>
-            {% endfor %}
-            </div>
-        </div>
-        <div class="legenda-main">
-            <p class="legenda">{{secao.subtitulo}}</p>
-        </div>
-    </section>
     
-    <section class="categorias">
-        <div class="botões">
-            {% for categoria in categorias %}
-            <button class="componente">
-                <img src="{{categoria.icone.url}}" alt="">
-                <p>{{categoria.descricao}}</p>
-            </button>
-            {% endfor %}
-        </div>
-    </section>
-    <main>
-        <section class="card-educativo">
-            {% for cat_vid in categorias_videos.values %}
-            <h2 class="subtitulo">{{cat_vid.categoria.nome_formatado.0}} <span class="{% cycle 'laranja italico' 'roxo italico' 'amarelo italico' 'rosa italico' %}">{{cat_vid.categoria.nome_formatado.1}}</span>
-                <div class="rectangle-divider"></div>
-            </h2>
-            
-            
-            <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
-                
-            {% for video in cat_vid.videos %}
-                {% cycle "<div class='carousel-cell'>" "" "" %}
-                    <div class="item">
-                        <img src="{{video.thumbnail.url}}">
-                        <p class="descricao preto">{{video.titulo}}</p>
-                    </div>
-                {% if forloop.last %}
-                </div>
-                {% resetcycle %}
-                {% else %}
-                    {% cycle "" "" "</div>" %}
-                {% endif %}
-            {% endfor %}
-            </div>
-            {% resetcycle %}
-            {% endfor %}
-        </section>
-    {% endblock %}
+    <div class="carousel" data-flickity='{ "wrapAround": true, "autoPlay": true, "imagesLoaded":true }'>
         
-    {% block js %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    {% endblock %}
+    {% for video in cat_vid.videos %}
+        {% cycle "<div class='carousel-cell'>" "" "" %}
+            <div class="item">
+                <img src="{{video.thumbnail.url}}">
+                <p class="descricao preto">{{video.titulo}}</p>
+            </div>
+        {% if forloop.last %}
+        </div>
+        {% resetcycle %}
+        {% else %}
+            {% cycle "" "" "</div>" %}
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% resetcycle %}
+    {% endfor %}
+</section>
+{% endblock %}
+    
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}
