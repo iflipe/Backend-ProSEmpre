@@ -2,196 +2,196 @@
 {% load static %}
 {% load humanize %}
 
-    {% block css %}
-    <link rel="stylesheet" href="{% static 'css/forum/mobile/forum.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forum/tablet/forum.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forum/pc/forum.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forum/mobile/carrossel.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forum/tablet/carrossel.css' %}">
-    <link rel="stylesheet" href="{% static 'css/forum/pc/carrossel.css' %}">
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/forum/mobile/forum.css' %}">
+<link rel="stylesheet" href="{% static 'css/forum/tablet/forum.css' %}">
+<link rel="stylesheet" href="{% static 'css/forum/pc/forum.css' %}">
+<link rel="stylesheet" href="{% static 'css/forum/mobile/carrossel.css' %}">
+<link rel="stylesheet" href="{% static 'css/forum/tablet/carrossel.css' %}">
+<link rel="stylesheet" href="{% static 'css/forum/pc/carrossel.css' %}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
 
-    <style>
-        #topicos-populares{
-            margin-top: -100px;
-        }
-    </style>
-    <title>Forum</title>
-    {% endblock %}
+<style>
+    #topicos-populares{
+        margin-top: -100px;
+    }
+</style>
+<title>Forum</title>
+{% endblock %}
 
-    {% block conteudo %}
-    <div id="forum">
+{% block conteudo %}
+<div id="forum">
 
-        <!--Hero da página-->
-        <div class="hero">
-            <!--1° Metade do hero (Texto e botão)-->
-            <div class="hero-section1">
+    <!--Hero da página-->
+    <div class="hero">
+        <!--1° Metade do hero (Texto e botão)-->
+        <div class="hero-section1">
 
-                <!--Titulo do hero-->
-                <h1 class="titulo-hero">{{secao.titulo|safe}}</h1>
-                
-                <!--Conteudo do hero-->
-                <p class="hero-paragraph">{{secao.subtitulo}}</p>
+            <!--Titulo do hero-->
+            <h1 class="titulo-hero">{{secao.titulo|safe}}</h1>
+            
+            <!--Conteudo do hero-->
+            <p class="hero-paragraph">{{secao.subtitulo}}</p>
 
-                <!--Botão do hero-->
-                <button class="hero-btn">{{secao.texto_botao}}<svg class="hero-btn-span" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.412777 18.7777C0.956418 19.3213 1.83792 19.3213 2.38154 18.7777L9.18545 11.9669C10.2719 10.8795 10.2714 9.11738 9.18461 8.0304L2.37653 1.22238C1.8329 0.678722 0.951407 0.678722 0.407752 1.22238C-0.135917 1.76605 -0.135917 2.64749 0.407752 3.19116L6.23469 9.01812C6.77845 9.56174 6.77845 10.4432 6.23469 10.9869L0.412777 16.8089C-0.130892 17.3525 -0.130892 18.2339 0.412777 18.7777Z" fill="white"/>
-                    </svg>
-                     </button>
-            </div>
+            <!--Botão do hero-->
+            <button class="hero-btn">{{secao.texto_botao}}<svg class="hero-btn-span" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.412777 18.7777C0.956418 19.3213 1.83792 19.3213 2.38154 18.7777L9.18545 11.9669C10.2719 10.8795 10.2714 9.11738 9.18461 8.0304L2.37653 1.22238C1.8329 0.678722 0.951407 0.678722 0.407752 1.22238C-0.135917 1.76605 -0.135917 2.64749 0.407752 3.19116L6.23469 9.01812C6.77845 9.56174 6.77845 10.4432 6.23469 10.9869L0.412777 16.8089C-0.130892 17.3525 -0.130892 18.2339 0.412777 18.7777Z" fill="white"/>
+                </svg>
+                    </button>
+        </div>
 
-            <!--2° Metade do hero (imagens)-->
-            <div class="hero-section2">
+        <!--2° Metade do hero (imagens)-->
+        <div class="hero-section2">
 
-                <!--Div pai para organizar a posição das imagens e do retângulo-->
-                <div class="lateral-imgs">
-                    {% for img in imagens_hero %}
-                    <div class="img{% cycle '1' '2' '3' %}-container">
-                        <img class="img" src="{{img.conteudo.url}}" alt="pai com filho no colo, olhando pro mar"/>
-
-                    </div>
-                    {% endfor %}
-
-                    <div class="container-rectangle">
-                        <div class="rectangle"></div>
-                    </div>
+            <!--Div pai para organizar a posição das imagens e do retângulo-->
+            <div class="lateral-imgs">
+                {% for img in imagens_hero %}
+                <div class="img{% cycle '1' '2' '3' %}-container">
+                    <img class="img" src="{{img.conteudo.url}}" alt="pai com filho no colo, olhando pro mar"/>
 
                 </div>
-            
-            </div>
-        
+                {% endfor %}
 
-        </div>
-
-        <!--Div para centralizar o campo de adicionar tópicos-->
-        <div class="centraliza">
-
-            <!--Campo de adicionar tópicos-->
-            <form class="add-novo-topico" method="POST" action="adicionar_topico"> 
-                {% csrf_token %}
-                <!--Campo para digitar-->
-                <textarea class="textarea-add-novo-topico" placeholder="Adicionar um novo tópico" id="novo_topico" name="novo_topico"></textarea>
-                
-                <!--Imagem do botão adicionar-->
-                <button type="submit">
-                    <img class="img-add-novo-topico" src="{% static 'img/icones/add-botao.png' %}" alt="botao-adicionar" >
-                </button>
-                    
-            </form>
-        </div>
-
-        <!--Lista de tópicos-->
-        <div id="topicos" class="topicos">
-            {% for topico, texto in topicos %}
-            <div class="item-topico">
-                <div class="conteudo-item-topico">
-                    <h3>{{topico.titulo}}</h3>
-                    <div class="perfil-item-topico">
-                        <div class="icone-perfil-item-topico {corFundoPerfil}">
-                            <img src="{{topico.usuario.foto_perfil.url}}" alt="icone do perfil">
-        
-                        </div>
-                        <div class="texto-perfil-item-topico">
-                            <p class="nome-perfil-item-topico">{{topico.usuario.nome}}</p>
-                            <p class="tempo-postado-perfil-item-topico">{{topico.data_criacao|naturaltime}}</p>
-                        </div>
-                    </div>
-        
-                    <div class="paragrafo-item-topico">
-                        {% if topico.conteudo|length > 200 %}
-                            {{ topico.conteudo|slice:":200" }}...
-                            <p class="texto-integra" style="display: none;">{{topico.conteudo}}</p>
-                            <span onclick="verMais(this)">Ver mais <img class="icone-seta-pra-baixo-item-topicos" src="{% static 'img/icones/seta-pra-baixo-icon.png' %}" alt="icone de seta pra baixo"/></span>
-                        {% else %}
-                            {{topico.conteudo}}
-                        {% endif %}
-                       
-                    </div>
-        
-                    <div class="footer-item-topico">
-                        <div class="icons-item-topico">
-                            <img src="{% static 'img/icones/salvar-icon.png' %}" alt="icone de salvar" class="salvar-icon-item-topico">
-                            <div class="add-comentario-item-topico">
-                                <img src="{% static 'img/icones/comentario-icon.png' %}" alt="icone de comentario">
-                                <p>Adicionar comentário</p>
-                            </div>
-                        </div>
-        
-                        
-                        <div class="footer-sugestao">
-                            <p>{{texto|safe}}</p>
-                        </div>
-        
-                    </div>
-        
+                <div class="container-rectangle">
+                    <div class="rectangle"></div>
                 </div>
+
+            </div>
         
-            </div>
-            {% endfor %}
-
-            <div class="paginacao">
-                <span class="nav-paginas">
-                    {% if topicos.has_previous %}
-                        <a href="?page=1">&laquo;</a>
-                        <a href="?page={{ topicos.previous_page_number }}">&lsaquo;</a>
-                    {% endif %}
-            
-                    {% for i in topicos.paginator.page_range %}
-	                    <a href="?page={{ i }}">{{i}}</a>
-                    {% endfor %}
-            
-                    {% if topicos.has_next %}
-                        <a href="?page={{ topicos.next_page_number }}">&rsaquo;</a>
-                        <a href="?page={{ topicos.paginator.num_pages }}">&raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
         </div>
+    
 
-        <!--Lista de tópicos populares-->
-        <div class="topicos-populares">
-            <h2 class="titulo-topicos-populares">Tópicos <span>populares</span></h2>
-        </div>
-        
-        <div id="topicos-populares" class="carousel" data-flickity='{ "wrapAround": true }'>
-            {% for item in topicos_populares %}
-            <div class="carousel-cell">
-                <div class="item-topico-popular">
-                    <div class="item-topico-popular-content">
-            
-                        <div class="section-titulo-paragrafo-item-topico-popular">
-                            <h3>{{item.topico.titulo}}</h3>
-                            <p>{{item.topico.conteudo|slice:":100"}}</p>
-                        </div>
-                        
-                        <div class="sections-item-topico-popular">
-                            <div class="item-topico-popular-section1">
-                                <img src="{% static 'img/icones/comentario-icon.png' %}" alt="icone de comentário" class="comentario-icone-topico-popular" />
-                                <p>{{item.comentaristas}} pessoa{{item.comentaristas|pluralize}} discutindo esse tópico</p>
-                            </div>
-                            <div class="item-topico-popular-section2">
-                                <img src="{% static 'img/icones/relogio-icone.png' %}" alt="icone de relogio" class="relogio-icone-topico-popular" />
-                                <p>Criado há {{item.topico.data_criacao|naturaltime}}</p>
-                            </div>
-                        </div>
-            
-            
-                    </div>
-            
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-
-           
     </div>
-    {% endblock %}
-    {% block js %}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    {% endblock %}
+
+    <!--Div para centralizar o campo de adicionar tópicos-->
+    <div class="centraliza">
+
+        <!--Campo de adicionar tópicos-->
+        <form class="add-novo-topico" method="POST" action="adicionar_topico"> 
+            {% csrf_token %}
+            <!--Campo para digitar-->
+            <textarea class="textarea-add-novo-topico" placeholder="Adicionar um novo tópico" id="novo_topico" name="novo_topico"></textarea>
+            
+            <!--Imagem do botão adicionar-->
+            <button type="submit">
+                <img class="img-add-novo-topico" src="{% static 'img/icones/add-botao.png' %}" alt="botao-adicionar" >
+            </button>
+                
+        </form>
+    </div>
+
+    <!--Lista de tópicos-->
+    <div id="topicos" class="topicos">
+        {% for topico, texto in topicos %}
+        <div class="item-topico">
+            <div class="conteudo-item-topico">
+                <h3>{{topico.titulo}}</h3>
+                <div class="perfil-item-topico">
+                    <div class="icone-perfil-item-topico {corFundoPerfil}">
+                        <img src="{{topico.usuario.foto_perfil.url}}" alt="icone do perfil">
+    
+                    </div>
+                    <div class="texto-perfil-item-topico">
+                        <p class="nome-perfil-item-topico">{{topico.usuario.nome}}</p>
+                        <p class="tempo-postado-perfil-item-topico">{{topico.data_criacao|naturaltime}}</p>
+                    </div>
+                </div>
+    
+                <div class="paragrafo-item-topico">
+                    {% if topico.conteudo|length > 200 %}
+                        {{ topico.conteudo|slice:":200" }}...
+                        <p class="texto-integra" style="display: none;">{{topico.conteudo}}</p>
+                        <span onclick="verMais(this)">Ver mais <img class="icone-seta-pra-baixo-item-topicos" src="{% static 'img/icones/seta-pra-baixo-icon.png' %}" alt="icone de seta pra baixo"/></span>
+                    {% else %}
+                        {{topico.conteudo}}
+                    {% endif %}
+                    
+                </div>
+    
+                <div class="footer-item-topico">
+                    <div class="icons-item-topico">
+                        <img src="{% static 'img/icones/salvar-icon.png' %}" alt="icone de salvar" class="salvar-icon-item-topico">
+                        <div class="add-comentario-item-topico">
+                            <img src="{% static 'img/icones/comentario-icon.png' %}" alt="icone de comentario">
+                            <p>Adicionar comentário</p>
+                        </div>
+                    </div>
+    
+                    
+                    <div class="footer-sugestao">
+                        <p>{{texto|safe}}</p>
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+        {% endfor %}
+
+        <div class="paginacao">
+            <span class="nav-paginas">
+                {% if topicos.has_previous %}
+                    <a href="?page=1">&laquo;</a>
+                    <a href="?page={{ topicos.previous_page_number }}">&lsaquo;</a>
+                {% endif %}
+        
+                {% for i in topicos.paginator.page_range %}
+                    <a href="?page={{ i }}">{{i}}</a>
+                {% endfor %}
+        
+                {% if topicos.has_next %}
+                    <a href="?page={{ topicos.next_page_number }}">&rsaquo;</a>
+                    <a href="?page={{ topicos.paginator.num_pages }}">&raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+    <!--Lista de tópicos populares-->
+    <div class="topicos-populares">
+        <h2 class="titulo-topicos-populares">Tópicos <span>populares</span></h2>
+    </div>
+    
+    <div id="topicos-populares" class="carousel" data-flickity='{ "wrapAround": true }'>
+        {% for item in topicos_populares %}
+        <div class="carousel-cell">
+            <div class="item-topico-popular">
+                <div class="item-topico-popular-content">
+        
+                    <div class="section-titulo-paragrafo-item-topico-popular">
+                        <h3>{{item.topico.titulo}}</h3>
+                        <p>{{item.topico.conteudo|slice:":100"}}</p>
+                    </div>
+                    
+                    <div class="sections-item-topico-popular">
+                        <div class="item-topico-popular-section1">
+                            <img src="{% static 'img/icones/comentario-icon.png' %}" alt="icone de comentário" class="comentario-icone-topico-popular" />
+                            <p>{{item.comentaristas}} pessoa{{item.comentaristas|pluralize}} discutindo esse tópico</p>
+                        </div>
+                        <div class="item-topico-popular-section2">
+                            <img src="{% static 'img/icones/relogio-icone.png' %}" alt="icone de relogio" class="relogio-icone-topico-popular" />
+                            <p>Criado há {{item.topico.data_criacao|naturaltime}}</p>
+                        </div>
+                    </div>
+        
+        
+                </div>
+        
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+        
+</div>
+{% endblock %}
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}
