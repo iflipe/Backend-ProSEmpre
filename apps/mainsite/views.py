@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .utils import get_footer
 from .models import (
     CategoriaApoio,
     TextoSecao,
@@ -7,9 +8,6 @@ from .models import (
     Ferramenta,
     Equipe,
     ArtigoBlog,
-    RecursoApoio,
-    Contato,
-    RedesSociais,
 )
 import random
 
@@ -30,15 +28,11 @@ def pais_e_profs(request):
             "paginas": paginas_aleatorias,
         }
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     context = {
         "secao": secao_pais_e_profs,
         "categoria_paginas": pag_aleatoria_por_categoria,
-        "contato": contato,
-        "redes_sociais": redes_sociais,
     }
+    context.update(get_footer())
 
     return render(request, "pais-e-profs.html", context)
 
@@ -60,16 +54,12 @@ def videos(request):
             "videos": videos_aleatorios,
         }
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     context = {
         "secao": secao,
         "categorias_videos": videos_aleatorios_por_categoria,
         "imagens": [],  # Inicializa a lista vazia
-        "contato": contato,
-        "redes_sociais": redes_sociais,
     }
+    context.update(get_footer())
 
     # Verifica o tamanho da lista resultado e adiciona as imagens
     if len(resultado) > 0:
@@ -111,9 +101,6 @@ def home(request):
     )
     secao_aleatoria = random.sample(list(secao_colorida), min(2, len(secao_colorida)))
 
-    contato = Contato.objects.first()
-    redes_sociais = RedesSociais.objects.all()
-
     ferramentas = Ferramenta.objects.all()
     categorias = CategoriaApoio.objects.all()
     equipe = Equipe.objects.all()
@@ -129,10 +116,10 @@ def home(request):
         "secao_apoio": secao_apoio,
         "ferramentas": ferramentas,
         "equipe": equipe,
-        "contato": contato,
-        "redes_sociais": redes_sociais,
         "artigos": artigos,
         "secao_cores": secao_aleatoria,
         "categorias": categorias,
     }
+    context.update(get_footer())
+
     return render(request, "home.html", context)
